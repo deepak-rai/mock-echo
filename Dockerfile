@@ -38,7 +38,19 @@ ENV NODE_VERSION 8.6.0
 #  && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
 RUN apt-get install -y npm
-RUN npm install csv-parse raw-body content-type csv-parse csv formidable st path sql.js uuid randomstring date-and-time time
+RUN npm install csv-parse
+RUN npm install raw-body
+RUN npm install content-type
+RUN npm install csv-parse
+RUN npm install csv
+RUN npm install formidable
+RUN npm install st
+RUN npm install path
+RUN npm install sql.js
+RUN npm install uuid
+RUN npm install randomstring
+RUN npm install date-and-time
+RUN npm install time
 
 ADD start_server.sh ${appdir}/start_server.sh
 ADD index.js ${appdir}/index.js
