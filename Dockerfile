@@ -6,6 +6,23 @@ RUN apt-get update
 RUN apt-get install --yes nodejs
 RUN apt-get install --yes build-essential
 RUN apt-get update
+RUN apt-get install -y npm
+RUN apt-get update
+RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
+RUN npm install csv-parse
+RUN npm install raw-body
+RUN npm install content-type
+RUN npm install csv-parse
+RUN npm install csv
+RUN npm install formidable
+RUN npm install st
+RUN npm install path
+RUN npm install sql.js
+RUN npm install uuid
+RUN npm install randomstring
+RUN npm install date-and-time
+RUN npm install time
+# RUN npm install csv-parse raw-body content-type csv-parse csv formidable st path sql.js uuid randomstring date-and-time time
 
 ENV appdir /var/lib/mock-echo
 ENV logdir /var/logs/mock-echo
@@ -36,21 +53,6 @@ ENV NODE_VERSION 8.6.0
 #  && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
 #  && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
 #  && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
-
-RUN apt-get install -y npm
-RUN npm install csv-parse
-RUN npm install raw-body
-RUN npm install content-type
-RUN npm install csv-parse
-RUN npm install csv
-RUN npm install formidable
-RUN npm install st
-RUN npm install path
-RUN npm install sql.js
-RUN npm install uuid
-RUN npm install randomstring
-RUN npm install date-and-time
-RUN npm install time
 
 ADD start_server.sh ${appdir}/start_server.sh
 ADD index.js ${appdir}/index.js
