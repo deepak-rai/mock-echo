@@ -16,7 +16,8 @@ const randomstring = require("randomstring");
 const dateAndTime = require('date-and-time');
 
 // Pass the port number as parameter - node index.js 8888
-const port = parseInt(process.argv.slice(2));
+const DEFAULT_MOCK_ECHO_PORT = 8080;
+const MOCK_ECHO_PORT = parseInt(process.argv.slice(2)) || DEFAULT_MOCK_ECHO_PORT;
 const DEFAULT_RESPONSE = "OK";
 const DEFAULT_RESPONSE_CODE = 200;
 const MISSING_URL = "URL not set";
@@ -748,5 +749,5 @@ function mkdirPath(dirPath) {
   }
 }
 
-server.listen(port);
-console.log("Server is listening " + port);
+server.listen(MOCK_ECHO_PORT);
+console.log("Server is listening " + MOCK_ECHO_PORT);
