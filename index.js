@@ -370,7 +370,7 @@ var server = http.createServer(function(request, response) {
                 fs.readFile(filePath, function(err, data){
                   if(err){
                     response.statusCode = 500;
-                    response.end(`Error getting the file: ${err}.`);
+                    response.end('Error getting the file: ${err}');
                   } else {
                     const path1 = require('path');
                     // based on the URL path, extract the file extention. e.g. .js, .doc, ...
@@ -748,6 +748,11 @@ function mkdirPath(dirPath) {
     }
   }
 }
+
+String.prototype.startsWith = function (str)
+                              {
+                                 return this.indexOf(str) == 0;
+                              }
 
 server.listen(MOCK_ECHO_PORT);
 console.log("Server is listening " + MOCK_ECHO_PORT);
