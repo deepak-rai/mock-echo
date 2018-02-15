@@ -5,7 +5,6 @@ Simple HTTP mock server which can be set for given url, parameter to return inte
 
 ## Installation and running the mock-echo ##
 
-
 #### Pre-requisite installation
 - Ubuntu Installation :
 ```
@@ -27,17 +26,6 @@ Download the `index.js` and run the following
 mkdir -p file_upload
 node index.js 8014 # Any free port
 ```
-
-
-## Run the docker ##
-
-Required to pass the optional port(`SERVER_PORT`) in the docker run command, on which the HTTP server is intended to run.
-- For initial bootstrapping of URL's, can mount a csv file which consists of `"url","response",responseCode` to `/var/lib/mock-echo/sample.csv`, which will be loaded onto mock-echo.
-- Server logs can be found in `/var/logs/mock-echo/server.log` inside the docker.
-
-Docker run command : `docker run -t -d --net=host -e SERVER_PORT=<http-server-port> <optional-sample-csv-file-mount> <docker-image>`
-
-Sample Docker run command : `docker run --name mock-echo -t -d --net=host -e SERVER_PORT=8014 -v /home/deepak.rai/mock/sample.csv:/var/lib/mock-echo/sample.csv drai82/mock-echo`
 
 ## Endpoints ##
 
